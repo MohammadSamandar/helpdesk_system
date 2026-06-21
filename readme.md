@@ -59,3 +59,14 @@
 ۱. از طریق صفحه ثبت‌نام، یک حساب کاربری جدید ایجاد کنید.
 ۲. پس از ورود، به صفحه اصلی (/) هدایت می‌شوید که لیست تیکت‌های شما را نمایش می‌دهد.
 ۳. با کلیک روی دکمه "ایجاد تیکت جدید"،
+
+<img width="1280" height="567" alt="photo19166829411" src="https://github.com/user-attachments/assets/2c9b728b-6f90-4b37-8087-5b88760428cd" />
+<img width="1280" height="565" alt="photo19166829688" src="https://github.com/user-attachments/assets/f7981541-7ffd-4d3f-b70d-ff8333fe260f" />
+<img width="1280" height="571" alt="photo19166829788 (1)" src="https://github.com/user-attachments/assets/95f0db68-96b4-4214-a354-a6fc97a32f26" />
+<img width="1280" height="564" alt="photo19166830672" src="https://github.com/user-attachments/assets/49142935-4147-41c4-93c8-88617cf18bd4" />
+<img width="1280" height="570" alt="photo19166828920" src="https://github.com/user-attachments/assets/fb0177be-46fc-45de-bbfb-82ef87aa2d2f" />
+<img width="1280" height="561" alt="photo19166829169" src="https://github.com/user-attachments/assets/1ad89782-70a7-4d7d-876b-2998a0440b29" />
+<img width="1280" height="566" alt="photo19166830031" src="https://github.com/user-attachments/assets/967ce412-9b55-41ef-bc5c-49c0d491ecf9" />
+<img width="1280" height="570" alt="photo19166830171" src="https://github.com/user-attachments/assets/4d52dc9e-d39c-4bcc-a104-b39da493e932" />
+<img width="1280" height="566" alt="photo19166830456" src="https://github.com/user-attachments/assets/de5c4325-9902-4f8b-88ca-21d6d1dec2e9" />
+<img width="1280" height="573" alt="photo19166829788" src="https://github.com/user-attachments/assets/58618cba-bad7-440e-b141-bd27004c8dc8" />
