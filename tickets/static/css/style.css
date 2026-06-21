@@ -1,0 +1,375 @@
+/* ticketApp/static/css/style.css (نسخه فارسی و راست-چین شده) */
+
+body {
+    /* تغییر اصلی ۱: تعیین جهت و فونت مناسب فارسی */
+    direction: rtl;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.header {
+    background-color: #4CAF50;
+    overflow: hidden;
+    padding: 15px 20px;
+    color: white;
+}
+
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    float: right; /* لوگو در سمت راست قرار می‌گیرد */
+}
+
+.header-right {
+    /* تغییر اصلی ۲: منو از راست به چپ منتقل شد */
+    float: left;
+    margin-top: 5px;
+}
+
+.header a {
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#body {
+    padding: 20px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #4CAF50;
+    color: #ffffff;
+    /* تغییر اصلی ۳: تراز متن سرتیترها راست-چین شد */
+    text-align: right;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    /* تغییر اصلی ۴: تراز متن تمام سلول‌ها راست-چین شد */
+    text-align: right;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #4CAF50;
+}
+
+.styled-table a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.styled-table a:hover {
+    text-decoration: underline;
+}
+
+.ticket h2 {
+    color: #4CAF50;
+    /* عنوان جزئیات تیکت هم راست-چین می‌شود */
+    text-align: right;
+}
+
+
+
+/* استایل برای دکمه خروج تا شبیه لینک به نظر برسد */
+.link-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    display: inline;
+    line-height: 25px;
+    vertical-align: baseline;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+/* ========================================= */
+/* استایل‌های مربوط به فرم‌های ورود و ثبت نام */
+/* ========================================= */
+
+.auth-form {
+    max-width: 500px; /* حداکثر عرض فرم */
+    margin: 40px auto; /* قرار گرفتن در وسط صفحه */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* استایل برای هر پاراگراف که شامل لیبل و اینپوت است */
+.auth-form p {
+    margin-bottom: 20px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* برای جلوگیری از مشکلات عرض و پدینگ */
+    transition: border-color 0.3s;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="email"]:focus {
+    border-color: #4CAF50; /* رنگ سبز هدر هنگام فوکوس */
+    outline: none;
+}
+
+.auth-form button[type="submit"] {
+    font-family: inherit;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* استایل برای نمایش خطاهای فرم */
+.auth-form .errorlist {
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #ffdddd;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    color: #a94442;
+}
+
+
+
+
+/* ===================================== */
+/* استایل‌های مربوط به داشبورد کارشناس */
+/* ===================================== */
+
+.dashboard-container {
+    display: flex; /* فعال کردن حالت فلکس‌باکس برای چیدمان افقی */
+    gap: 20px; /* ایجاد فاصله 20 پیکسلی بین دو ستون */
+    align-items: flex-start; /* تراز کردن ستون‌ها از بالا */
+}
+
+.dashboard-column {
+    flex: 1; /* هر ستون نیمی از فضای موجود را اشغال می‌کند */
+    min-width: 0; /* برای جلوگیری از سرریز شدن محتوای جدول در حالت‌های خاص */
+}
+
+
+
+
+/* ===================================== */
+/* استایل‌های مربوط به بخش گفتگوی تیکت */
+/* ===================================== */
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+.message-box {
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 70%;
+    width: fit-content;
+}
+
+.message-header {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.message-body {
+    font-size: 1em;
+    white-space: pre-wrap; /* برای حفظ فاصله‌ها و خطوط جدید */
+}
+
+.message-footer {
+    font-size: 0.75em;
+    color: #888;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* استایل پیام‌های "من" (کاربر فعلی) */
+.my-message {
+    /* این خط مهم‌ترین بخش برای ارسال به سمت راست است چون صفحه مون راست چین
+    هست از کد استفاده کردیم*/
+    align-self: flex-start;  
+    background-color: #dcf8c6;
+    border-bottom-right-radius: 0;
+}
+
+/* استایل پیام‌های "دیگری" */
+.other-message {
+    /* این خط برای نگه داشتن در سمت چپ اسا چون صفحه مون راست چین هست از این کد استفاده کردیم*/
+    align-self: flex-end;
+    background-color: #f1f0f0;
+    border-bottom-left-radius: 0;
+}
+
+
+
+/* زیباتر شدن استایل دکمه باز کردن و بسته کردن تیکت */
+.btn-danger { text-decoration: none; padding: 8px 15px; background-color: #dc3545; color: white; border-radius: 5px; }
+.btn-success { text-decoration: none; padding: 8px 15px; background-color: #28a745; color: white; border-radius: 5px; }
+
+
+
+
+/* ======================================================== */
+/* اصلاح استایل فرم ارسال پاسخ در صفحه جزئیات تیکت */
+/* ======================================================== */
+
+/* استایل برای باکس متنی (textarea) */
+.auth-form textarea {
+    width: 100%; /* ۱. تمام عرض شدن باکس متن */
+    box-sizing: border-box; /* برای عملکرد صحیح width: 100% */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    min-height: 100px; /* ۲. افزایش ارتفاع پیش‌فرض */
+    resize: vertical; /* اجازه تغییر اندازه فقط به صورت عمودی */
+
+    font-family: inherit; /* ۳. ارث‌بری فونت از والد (همان فونت وزیرمتن) */
+    font-size: 1em; /* هماهنگی اندازه فونت */
+
+    transition: border-color 0.3s;
+}
+
+/* افزودن استایل فوکوس برای textarea */
+.auth-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+
+
+
+
+
+/* ===================================== */
+/* استایل‌های ریسپانسیو         */
+/* ===================================== */
+
+/* این استایل‌ها فقط برای صفحاتی با عرض حداکثر 768 پیکسل اعمال می‌شود */
+@media screen and (max-width: 768px) {
+    
+    /* ریسپانسیو کردن جدول‌ها */
+    .styled-table thead {
+        display: none; /* مخفی کردن سرتیترهای اصلی جدول در موبایل */
+    }
+
+    .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block; /* تبدیل جدول به حالت بلوکی (عمودی) */
+        width: 100%;
+    }
+
+    .styled-table tr {
+        margin-bottom: 15px; /* ایجاد فاصله بین هر ردیف که حالا یک کارت شده */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .styled-table td {
+        display: flex; /* ۱. سلول را به یک کانتینر فلکس تبدیل می‌کند */
+        justify-content: flex-start; /* ۲. لیبل و مقدار را به دو طرف سلول می‌چسباند */
+        align-items: center; /* تراز عمودی در وسط */
+        text-align: right; /* متن مقدار را راست‌چین نگه می‌دارد */
+        padding: 10px 15px; /* پدینگ داخلی سلول */
+    }
+
+    .styled-table td::before {
+        content: attr(data-label); /* لیبل را از خصوصیت data-label می‌خواند */
+        font-weight: bold;
+        text-align: left; /* متن خود لیبل را چپ‌چین می‌کند */
+        padding-left: 10px; /* کمی فاصله از لبه راست لیبل */
+    }
+
+
+    /* این قانون جدید، قابلیت شکستن کلمات را فقط به محتوای اصلی اعمال می‌کند */
+    .styled-table td span {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    }
+
+    /* ریسپانسیو کردن داشبورد کارشناس */
+    .dashboard-container {
+        flex-direction: column; /* ستون‌ها زیر هم قرار بگیرند */
+    }
+
+    /* ریسپانسیو کردن فرم‌ها */
+    .auth-form {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+}

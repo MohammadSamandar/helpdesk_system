@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}داشبورد کارشناس{% endblock %}
+
+{% block content %}
+  <h2>داشبورد کارشناس</h2>
+  <hr>
+
+  <div class="dashboard-container">
+
+    <div class="dashboard-column">
+      <h3>تیکت‌های تخصیص نیافته</h3>
+      {% if unassigned_tickets %}
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>شناسه</th>
+              <th>عنوان</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in unassigned_tickets %}
+            <tr>
+              <td data-label="شناسه تیکت">
+                <a href="{% url 'ticket_by_id' ticket.id %}">{{ ticket.id }}</a>
+              </td>
+              <td data-label="خلاصه"><span>{{ ticket.title }}</span></td>
+              <td data-label="عملیات">
+                <a href="{% url 'assign_ticket' ticket.id %}" style="color: #007bff;">
+                  <span>
+                    اختصاص به من
+                  </span>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>در حال حاضر تیکت تخصیص نیافته‌ای وجود ندارد.</p>
+      {% endif %}
+    </div>
+
+    <div class="dashboard-column">
+      <h3>تیکت های اختصاص یافته به من</h3>
+      {% if my_assigned_tickets %}
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>شناسه</th>
+              <th>عنوان</th>
+              <th>وضعیت</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in my_assigned_tickets %}
+            <tr>
+              <td data-label="شناسه تیکت">
+                <a href="{% url 'ticket_by_id' ticket.id %}"><span>{{ ticket.id }}</span></a>
+              </td>
+              <td data-label="خلاصه"><span>{{ ticket.title }}</span></td>
+              <td data-label="وضعیت"><span>{{ ticket.get_status_display }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>هیچ تیکتی به شما اختصاص نیافته است.</p>
+      {% endif %}
+    </div>
+
+    <div class="dashboard-column">
+      <h3>تیکت‌های دیگر کارشناسان</h3>
+      {% if all_tickets %}
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>شناسه</th>
+              <th>عنوان</th>
+              <th>اختصاص یافته به</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in all_tickets %}
+            <tr>
+              <td data-label="شناسه تیکت"><span>{{ ticket.id }}</span></td>
+              <td data-label="خلاصه"><span>{{ ticket.title }}</span></td>
+              <td data-label="اختصاص یافته"><span>{{ ticket.assignee.username }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>تیکت دیگری که به دیگران تخصیص یافته باشد، وجود ندارد.</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+{% endblock %}

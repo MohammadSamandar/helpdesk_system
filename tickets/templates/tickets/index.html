@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} تیکت ها {% endblock %}
+
+{% block content %}
+
+
+
+
+<div style="margin-bottom: 20px;">
+  <a href="{% url 'create_ticket' %}" style="text-decoration: none; padding: 10px 20px; background-color: #144f17; color: white; border-radius: 5px;">
+      ایجاد تیکت جدید
+  </a>
+</div>
+
+
+
+<table class="styled-table">
+ <thead>
+  <tr>
+   <th>شناسه تیکت</th>
+   <th>خلاصه</th>
+   <th>وضعیت</th>
+   <th>اختصاص یافته به</th>
+   <th>ساخته شده در</th>
+   <th>آخرین به روز رسانی</th>
+  </tr>
+ </thead>
+
+ <tbody>
+  {% for ticket in tickets %}
+  <tr>
+    <td data-label="شناسه تیکت">
+      <a href="{% url 'ticket_by_id' ticket.id %}">
+        <span>{{ticket.id}}</span>
+      </a>
+    </td>
+    <td data-label="خلاصه"><span>{{ticket.title}}</span></td>
+    <td data-label="وضعیت"><span>{{ticket.get_status_display}}</span></td> 
+    <td data-label="اختصاص یافته">
+      <span>{{ticket.assignee|default_if_none:"هنوز اختصاص نیافته"}}</span>
+    </td>
+    <td data-label="ساخته شده در"><span>{{ticket.created_at}}</span></td>
+    <td data-label="آخرین به روز رسانی"><span>{{ticket.updated_at}}</span></td>
+  </tr>
+  {% endfor %}
+ </tbody>
+
+
+</table>
+
+
+
+{% endblock %}
+
+

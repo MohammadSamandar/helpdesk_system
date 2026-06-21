@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  
+    <h2>ثبت نام در سیستم</h2>
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">ثبت نام</button>
+
+
+    </form>
+
+
+{% endblock %}
+
+
+

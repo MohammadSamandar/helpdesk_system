@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %} جزئیات تیکت #{{ticket.id}} {% endblock %}
+
+{% block content %}
+  <div class="ticket-detail-container">
+    <table class="styled-table">
+      <h2>جزئیات تیکت #{{ticket.id}}</h2>
+      <tbody>
+        <tr><td>عنوان</td><td>{{ticket.title}}</td></tr>
+        <tr><td>وضعیت</td><td>{{ticket.get_status_display}}</td></tr>
+        <tr><td>نویسنده</td><td>{{ticket.author.username}}</td></tr>
+        <tr><td>اختصاص یافته به</td><td>{{ticket.assignee|default_if_none:"-"}}</td></tr>
+        <tr><td>شرح</td><td>{{ticket.description|linebreaks}}</td></tr>
+        <tr><td>ایجاد شده در</td><td>{{ticket.created_at}}</td></tr>
+      </tbody>
+    </table>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>گفتگو</h3>
+    <div class="message-container">
+        {% for comment in comments %}
+
+
+          {# مرحله ۱: تعیین چیدمان بر اساس هویت کاربر #}
+          {% if comment.author == request.user %}
+            <div class="message-box my-message">
+          {% else %}
+            <div class="message-box other-message">
+          {% endif %}
+              <div class="message-header">
+                <strong>
+                  {# مرحله ۲: تعیین برچسب نقش بر اساس گروه کاربر #}
+                  {% if comment.is_from_agent %}
+                    کارشناس:
+                  {% else %}
+                    مشتری:
+                  {% endif %}
+                  {{ comment.author.username }}
+                </strong>
+              </div>
+              <div class="message-body">
+                {{ comment.body|linebreaks }}
+              </div>
+              <div class="message-footer">
+                {{ comment.created_at }}
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <hr style="margin: 30px 0;">
+
+    {% if ticket.status != 'Closed' %}
+    <h3>پاسخ جدید</h3>
+    <form method="post" class="auth-form" style="margin: 0; max-width: 100%;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ارسال پاسخ</button>
+    </form>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        {% if is_agent %}
+            {% if ticket.status != 'Closed' %}
+                <a href="{% url 'close_ticket' ticket.id %}" class="btn-danger">بستن تیکت</a>
+            {% else %}
+                <a href="{% url 'reopen_ticket' ticket.id %}" class="btn-success">باز کردن مجدد تیکت</a>
+            {% endif %}
+        {% endif %}
+    </div>
+
+  </div>
+
+
+  <div id="last-message-anchor"></div>
+
+{% endblock %}
+
+
+
+
+
+{% block scripts %}
+<script>
+    // منتظر می‌مانیم تا تمام محتوای HTML صفحه به طور کامل بارگذاری شود
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        // عنصری که به عنوان لنگر تعریف کردیم را پیدا می‌کنیم
+        const anchor = document.getElementById('last-message-anchor');
+
+        // اگر عنصر لنگر در صفحه وجود داشت...
+        if (anchor) {
+            // ... به نرمی به سمت آن اسکرول می‌کنیم
+            anchor.scrollIntoView({ block: 'end' });
+        }
+    });
+</script>
+{% endblock %}

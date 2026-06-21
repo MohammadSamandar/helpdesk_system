@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}ایجاد تیکت جدید{% endblock %}
+
+{% block content %}
+  <form method="post" class="auth-form">
+    <h2>ایجاد تیکت جدید</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ثبت تیکت</button>
+  </form>
+{% endblock %}
